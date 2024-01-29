@@ -1,0 +1,36 @@
+<div class="w-5 h-4 mt-6 border border-cyan-600 text-center flex flex-col items-center">
+
+    <div class="flex items-center mb-4 mt-6">
+        <input type="text" placeholder="Name" class="mt-6 mb-4 pl-2 border border-black rounded" [(ngModel)]="input">
+        
+        <button (click)="select('Bush')" [class.border-cyan-600]="selected === 'Bush'" class="mx-4 border">
+            <img src="https://i.pinimg.com/564x/df/89/6d/df896ddf48dd97057f884c72355f135c.jpg" alt="bush" class="w-12 h-12 object-cover">
+        </button>
+        
+        <button (click)="select('Tree')" [class.border-cyan-600]="selected === 'Tree'" class="mr-2 border">
+            <img src="https://i.pinimg.com/564x/75/e7/bd/75e7bd015bf6c4e22b4581746159df5a.jpg" alt="tree" class="w-12 h-12 object-cover">
+        </button>
+
+        <button (click)="deleteForm()" class="ml-7 mr-5 w-8 h-8 object-cover">
+            <img src="https://i.pinimg.com/564x/6d/68/ff/6d68ff84bc56b5e08a019d520a33bfa0.jpg" alt="delete">
+        </button>
+
+        <button (click)="arrayPlants()" class="w-8 h-8 object-cover justify-end">
+            <img src="https://i.pinimg.com/564x/0f/a9/b8/0fa9b8bb4fbab87be6aa69b0866e7842.jpg" alt="save">
+        </button>
+    </div>
+    
+
+    <div>
+        <h1 class="text-center mt-5 text-xl font-bold text-green-600">Angular Inventory List</h1>
+        <ul>
+            <li *ngFor="let data of saveData; let i = index" class="flex ml-4 mt-5 items-center justify-between text-lg" [class.bg-yellow-200]="data['favorite']">
+                {{ data['name'] }} | {{ data['type'] }}
+                <div>
+                    <button (click)="deletePlant(i)" class="mr-3 ml-3"><img src="https://i.pinimg.com/564x/fa/12/e2/fa12e2d4490f6672a5f61bea3578b8cd.jpg" alt="delete" class="w-6 h-6"></button>
+                    <button (click)="favorite(i)" class="mr-5"><img src="https://i.pinimg.com/564x/4d/d9/fc/4dd9fc873d89856aa14b88184411ec20.jpg" alt="favorite" class="w-8 h-8"></button> 
+                </div>    
+            </li>
+        </ul>
+    </div>
+</div>
